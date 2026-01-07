@@ -16,14 +16,6 @@
     <sup>3</sup>City University of Hong Kong, China&emsp; 
 </div>
 
-<br>
-
-<div>
-    <strong>Submitted to IEEE Transactions on Pattern Analysis and Machine Intelligence (TPAMI)</strong>
-</div>
-
-<br>
-
 <div>
     <h4 align="center">
         • <a href="https://github.com/Baoliang93/GMC" target='_blank'>[Code]</a> • 
@@ -41,14 +33,26 @@
 
 ## :bar_chart: Correlation Surface Visualization
 
-> **Tip:** GitHub does not support direct interactive HTML embedding. Click the preview below (or the link above) to open the **interactive 3D surface** in your browser.
+<div align="left">
 
-<a href="https://htmlpreview.github.io/?https://github.com/Baoliang93/GMC/blob/main/test/ssim_kadid10k.html" target="_blank">
-    <img src="assets/abs.png" width="900px" alt="Click to View Interactive Surface" />
-</a>
+<table>
+  <tr>
+    <td width="55%">
+        <strong>Interactive Performance Diagnosis:</strong><br>
+        The GMC framework generates structured 3D surfaces that visualize IQA model consistency. Unlike traditional metrics that provide a single global score, our correlation surface reveals how model reliability fluctuates across different <b>Quality Scales</b> and <b>Quality Differences</b>. 
+        <br><br>
+    </td>
+    <td width="45%" align="center">
+        <a href="https://htmlpreview.github.io/?https://github.com/Baoliang93/GMC/blob/main/test/ssim_kadid10k.html">
+            <img src="assets/example4.gif" alt="GMC Interactive Demo" width="100%">
+        </a>
+    </td>
+  </tr>
+</table>
 
-<p align="center"><em>Click the image above to explore the interactive GMC Correlation Surface.</em></p>
+</div>
 
+> **Tip:** Click the link in the header or the interactive animation above to open the **full interactive 3D surface** in your browser.
 ---
 
 </div>
@@ -115,7 +119,7 @@ If you find this work useful for your research, please consider citing our paper
 ```bibtex
 @article{chen2024granular,
   title={From Global to Granular: Revealing IQA Model Performance via Correlation Surface},
-  author={Chen, Baoliang and Huang, Danni Huang, Hanwei Zhu, Lingyu Zhu, Shiqi Wang, and Weisi Lin},
+  author={Chen, Baoliang and Huang, Danni and Zhu, Hanwei and Zhu, Lingyu and Wang, Shiqi and Lin, Weisi},
   journal={Submitted to IEEE Transactions on Pattern Analysis and Machine Intelligence (TPAMI)},
   year={2024}
 }

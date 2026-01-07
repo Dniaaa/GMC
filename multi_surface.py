@@ -176,6 +176,7 @@ def plot_interactive_surfaces(xi_grid, yi_grid, zi_list, model_names):
     fig.write_image(f"images/example.png", scale=8)
 
 
+
 if __name__ == '__main__':
     cc = 'SRCC'   ## modify as needed
     path2 = "data/meta_info_KADID10kDataset.csv"
