@@ -27,10 +27,9 @@ def cal_mos_weights(labels_real, ks=5, sigma=2, plus=10):
     eff_label_dist = eff_label_dist / eff_label_dist.sum() * sum(emp_label_dist)
 
     # Use re-weighting based on effective label distribution, sample-wise weights: [Ns,]
-    eff_num_per_label1 = [eff_label_dist[bin_idx] for bin_idx in bin_index_per_label]
-    eff_num_per_label2 = [emp_label_dist[bin_idx] for bin_idx in bin_index_per_label]
+    eff_num_per_label = [eff_label_dist[bin_idx] for bin_idx in bin_index_per_label]
 
-    weights = np.array([np.float32(1 / x) * plus for x in eff_num_per_label1])
+    weights = np.array([np.float32(1 / x) * plus for x in eff_num_per_label])
 
     return weights
 

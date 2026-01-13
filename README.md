@@ -7,13 +7,17 @@
     <a href='' target='_blank'>Danni Huang</a><sup>1</sup>&emsp;
     <a href='https://dblp.org/pid/214/8898.html' target='_blank'>Hanwei Zhu</a><sup>2</sup>&emsp;
     <a href='https://github.com/lingyzhu0101' target='_blank'>Lingyu Zhu</a><sup>3</sup>&emsp;
+    <a href='' target='_blank'>Wei Zhou</a><sup>4</sup>&emsp;
     <a href='' target='_blank'>Shiqi Wang</a><sup>3</sup>&emsp;
+    <a href='' target='_blank'>Yuming Fang</a><sup>5</sup>&emsp;
     <a href='' target='_blank'>Weisi Lin</a><sup>2</sup>
 </div>
 <div>
     <sup>1</sup>South China Normal University, China&emsp; 
     <sup>2</sup>Nanyang Technological University, Singapore&emsp; 
     <sup>3</sup>City University of Hong Kong, China&emsp; 
+    <sup>4</sup>Cardiff University, United Kingdom&emsp; 
+    <sup>5</sup>Jiangxi University of Finance and Economics, China&emsp; 
 </div>
 
 <div>
@@ -47,7 +51,7 @@
     </td>
     <td width="45%" align="center">
         <a href="https://htmlpreview.github.io/?https://github.com/Dniaaa/GMC/blob/main/test/ssim_kadid10k.html">
-            <img src="assets/example4.gif" alt="GMC Interactive Demo" width="100%">
+            <img src="assets/example.gif" alt="GMC Interactive Demo" width="100%">
         </a>
     </td>
   </tr>
@@ -144,7 +148,7 @@ The codebase is modularized for clarity and extensibility:
 
 ---
 
-## :arrows_counter_clockwise: Processing Workflow
+## 🔄 Processing Workflow
 
 1.  **Data Loading**: Reads CSV/XLSX. Auto-identifies MOS, STD, and Prediction columns via `autodetect_columns` in `main.py`.
 2.  **STD Handling**:
