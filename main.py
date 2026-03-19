@@ -77,10 +77,15 @@ def build_surfaces(pred_dict, labels, std, weights, samples, plus, method, bound
 
 def plot_surfaces(xi_grid, yi_grid, zi_list, model_names, output_html):
     colorscales = ["Viridis", "Plasma", "Rainbow", "Hot", "Portland", "peach", "emrld", "turbo", "Spectral", "Thermal"]
+    mos_min = float(np.nanmin(xi_grid))
+    mos_max = float(np.nanmax(xi_grid))
+    x_tickvals = np.round(np.linspace(mos_min, mos_max, 5)).astype(int).tolist()
+    y_tickvals = np.round(np.linspace(0, mos_max - mos_min, 5)).astype(int).tolist()
+
     fig = go.Figure()
     for i, (name, zi) in enumerate(zip(model_names, zi_list)):
         fig.add_trace(go.Surface(x=xi_grid, y=yi_grid, z=zi, name=name, opacity=0.8, showscale=False, colorscale=colorscales[i % len(colorscales)], cmin=float(np.nanmin(zi)), cmax=float(np.nanmax(zi))))
-    fig.update_layout(width=900, height=900, template="plotly", font=dict(family="Times New Roman", size=16, color="black"), scene=dict(xaxis=dict(title=dict(text="Quality Scale", font=dict(size=24)), tickvals=[1,2,3,4,5]), yaxis=dict(title=dict(text="Quality Difference", font=dict(size=24)), tickvals=[0,1,2,3,4]), zaxis=dict(title=dict(text="GMC", font=dict(size=24)), tickvals=[0.2,0.3,0.4,0.5,0.6]), camera=dict(eye=dict(x=0.9, y=-2.55, z=0.375))))
+    fig.update_layout(width=900, height=900, template="plotly", font=dict(family="Times New Roman", size=16, color="black"), scene=dict(xaxis=dict(title=dict(text="Quality Scale", font=dict(size=24)), tickvals=x_tickvals), yaxis=dict(title=dict(text="Quality Difference", font=dict(size=24)), tickvals=y_tickvals), zaxis=dict(title=dict(text="GMC Score", font=dict(size=24)), tickvals=[0.2,0.3,0.4,0.5,0.6]), camera=dict(eye=dict(x=0.9, y=-2.55, z=0.375))))
     fig.update_traces(showlegend=True)
     os.makedirs(os.path.dirname(output_html), exist_ok=True)
     fig.write_html(output_html, include_plotlyjs="cdn")
