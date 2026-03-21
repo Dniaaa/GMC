@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GMC 交互工作台</title>
+    <title>GMC Studio</title>
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <!-- Phosphor Icons -->
@@ -26,10 +26,10 @@
                 <span>GMC Studio</span>
             </div>
             <ul class="nav-links">
-                <li class="active" data-target="entry"><i class="ph ph-house"></i> 项目入口</li>
-                <li data-target="guide"><i class="ph ph-info"></i> 使用指引</li>
-                <li data-target="console"><i class="ph ph-terminal-window"></i> 按钮操作间</li>
-                <li data-target="viewer"><i class="ph ph-cube"></i> 三维交互图</li>
+                <li class="active" data-target="entry"><i class="ph ph-house"></i> Home</li>
+                <li data-target="guide"><i class="ph ph-info"></i> Guidelines</li>
+                <li data-target="console"><i class="ph ph-terminal-window"></i> Control Panel</li>
+                <li data-target="viewer"><i class="ph ph-cube"></i> 3D Viewer</li>
             </ul>
             <div class="profile-area">
                 <i class="ph ph-user-circle"></i> Local User
@@ -48,9 +48,9 @@
                 
                 <div class="glass-card info-card">
                     <div class="card-icon"><i class="ph ph-rocket-launch"></i></div>
-                    <h3>快速启动</h3>
-                    <p>通过全新的动态UI界面，更快速、直观地运行GMC代码。一键生成相关的交互式3D曲面，用于详细探究IQA模型的内部一致性。</p>
-                    <button class="primary-btn nav-btn" data-target="console">立即开始 <i class="ph ph-arrow-right"></i></button>
+                    <h3>Quick Start</h3>
+                    <p>Run GMC code faster and more intuitively through a brand-new dynamic UI. Generate interactive 3D correlation surfaces with one click to explore the internal consistency of IQA models globally.</p>
+                    <button class="primary-btn nav-btn" data-target="console">Start Now <i class="ph ph-arrow-right"></i></button>
                 </div>
 
                 <div class="glass-card stat-card">
@@ -61,20 +61,20 @@
             <!-- Section 2: Guide -->
             <section id="guide" class="content-section">
                 <div class="glass-card header-card">
-                    <h2><i class="ph ph-info"></i> 使用指引</h2>
+                    <h2><i class="ph ph-info"></i> Guidelines</h2>
                 </div>
                 <div class="glass-card text-card">
-                    <h3>工具介绍</h3>
-                    <p>GMC 提供了一种更翔实可靠IQA模型性能评价范式。本网页操作间允许您通过表单的方式传递CLI参数，自动执行后台Python脚本，并在<strong>交互图展示区</strong>内免刷新浏览分析结果。</p>
+                    <h3>Introduction</h3>
+                    <p>GMC provides a more informative and reliable evaluation paradigm for IQA models. This web console allows you to pass CLI arguments via a form, automatically execute the backend Python script, and view the analytical results in the <strong>3D Viewer</strong> without refreshing the page.</p>
                 </div>
                 <div class="glass-card instructions-card">
-                    <h3>操作步骤</h3>
+                    <h3>Operation Steps</h3>
                     <ol class="custom-list">
-                        <li>在左侧导航栏选择进入 <strong>按钮操作间</strong>。</li>
-                        <li>填写 CSV 文件路径，例如 <code>./data/example.csv</code>。</li>
-                        <li>根据您的数据设置主观分(MOS列名)及预测分(Prediction列名)。</li>
-                        <li>(可选) 调整生成曲面的采样点数量(Samples)、评估方法(Method) 等参数。</li>
-                        <li>点击“立刻执行运算”，并在执行完毕后进入 <strong>三维交互图展示区</strong> 预览渲染图。</li>
+                        <li>Select <strong>Control Panel</strong> from the left navigation bar.</li>
+                        <li>Fill in the CSV data file path, e.g., <code>./data/example.csv</code>.</li>
+                        <li>Set the subjective score (MOS Column) and prediction score (Prediction Columns) according to your data.</li>
+                        <li>(Optional) Adjust parameters such as the number of sampling points (Samples) and evaluation method (Method).</li>
+                        <li>Click <strong>"Run Computation"</strong>, and enter the <strong>3D Viewer</strong> to preview the rendered surface after execution is complete.</li>
                     </ol>
                 </div>
             </section>
@@ -82,8 +82,8 @@
             <!-- Section 3: Operations Console -->
             <section id="console" class="content-section">
                 <div class="glass-card header-card">
-                    <h2><i class="ph ph-terminal-window"></i> 按钮操作间</h2>
-                    <p>配置参数并执行 GMC 模型脚本验证</p>
+                    <h2><i class="ph ph-terminal-window"></i> Control Panel</h2>
+                    <p>Configure parameters and execute GMC model scripts</p>
                 </div>
                 
                 <div class="split-layout">
@@ -91,30 +91,30 @@
                     <div class="glass-card form-card">
                         <form id="gmc-form">
                             <div class="form-group">
-                                <label for="pred_file"><i class="ph ph-file-csv"></i> 数据文件路径 (必需)</label>
-                                <input type="text" id="pred_file" name="pred_file" placeholder="例如: ./test/pred_ssim_kadid10k.csv" required>
-                                <small>支持 .csv 或 .xlsx 文件，路径需相对于 GMC 根目录。</small>
+                                <label for="pred_file"><i class="ph ph-file-csv"></i> Data File Path (Required)</label>
+                                <input type="text" id="pred_file" name="pred_file" placeholder="e.g., ./test/niqe_clipiqa_livec.csv" required>
+                                <small>Supports .csv or .xlsx files. Path should be relative to the GMC root directory.</small>
                             </div>
                             
                             <div class="form-row">
                                 <div class="form-group half">
-                                    <label for="mos_col">MOS 列名</label>
-                                    <input type="text" id="mos_col" name="mos_col" placeholder="默认: mos 或 Ground Truth Labels">
+                                    <label for="mos_col">MOS Column</label>
+                                    <input type="text" id="mos_col" name="mos_col" placeholder="Default: mos or Ground Truth Labels">
                                 </div>
                                 <div class="form-group half">
-                                    <label for="std_col">STD 列名 (可选)</label>
-                                    <input type="text" id="std_col" name="std_col" placeholder="例如: std">
+                                    <label for="std_col">STD Column (Optional)</label>
+                                    <input type="text" id="std_col" name="std_col" placeholder="e.g., std">
                                 </div>
                             </div>
                             
                             <div class="form-group">
-                                <label for="pred_cols">预测分列名 (逗号分隔，可选)</label>
-                                <input type="text" id="pred_cols" name="pred_cols" placeholder="默认自动检测除MOS外的所有数值列">
+                                <label for="pred_cols">Prediction Columns (Comma-separated, Optional)</label>
+                                <input type="text" id="pred_cols" name="pred_cols" placeholder="Auto-detects all numeric columns by default">
                             </div>
 
                             <div class="form-row">
                                 <div class="form-group half">
-                                    <label for="method">评估方法</label>
+                                    <label for="method">Method</label>
                                     <select id="method" name="method">
                                         <option value="SRCC">SRCC (Spearman)</option>
                                         <option value="PLCC">PLCC (Pearson)</option>
@@ -122,13 +122,13 @@
                                     </select>
                                 </div>
                                 <div class="form-group half">
-                                    <label for="samples">采样数目</label>
+                                    <label for="samples">Samples</label>
                                     <input type="number" id="samples" name="samples" value="100" min="10" max="5000">
                                 </div>
                             </div>
 
                             <button type="submit" class="primary-btn submit-btn" id="run-btn">
-                                <span><i class="ph ph-play"></i> 立刻执行运算</span>
+                                <span><i class="ph ph-play"></i> Run Computation</span>
                                 <div class="loader-spinner" style="display: none;"></div>
                             </button>
                         </form>
@@ -140,7 +140,7 @@
                             <div class="mac-btns"><span></span><span></span><span></span></div>
                             <span class="terminal-title">Console Output</span>
                         </div>
-                        <pre id="console-output" class="terminal-body"><span class="prompt">PS C:\GMC></span> 等待执行参数...
+                        <pre id="console-output" class="terminal-body"><span class="prompt">PS C:\GMC></span> Waiting for parameters...
 </pre>
                     </div>
                 </div>
@@ -150,14 +150,14 @@
             <section id="viewer" class="content-section viewer-section">
                 <div class="glass-card full-card">
                     <div class="viewer-header">
-                        <h2><i class="ph ph-cube"></i> 三维交互图展示区</h2>
-                        <button class="secondary-btn" id="refresh-viewer-btn"><i class="ph ph-arrows-clockwise"></i> 刷新视图</button>
+                        <h2><i class="ph ph-cube"></i> 3D Interactive Viewer</h2>
+                        <button class="secondary-btn" id="refresh-viewer-btn"><i class="ph ph-arrows-clockwise"></i> Refresh View</button>
                     </div>
                     
                     <div class="iframe-container" id="iframe-container">
                         <div class="placeholder-content">
                             <i class="ph ph-chart-polar"></i>
-                            <p>尚未生成可视化图表。<br>请前往【按钮操作间】执行代码。</p>
+                            <p>No visualization generated yet.<br>Please go to the <strong>Control Panel</strong> to run the code.</p>
                         </div>
                         <iframe id="plot-frame" src="" frameborder="0" style="display: none;"></iframe>
                     </div>

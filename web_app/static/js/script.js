@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if(data.samples) terminalOutput.innerHTML += `--samples ${data.samples} `;
         terminalOutput.innerHTML += '\n';
 
-        appendToTerminal('正在执行计算任务，请稍候...', 'prompt');
+        appendToTerminal('Running computation, please wait...', 'prompt');
 
         try {
             const response = await fetch('/run', {
@@ -91,7 +91,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (result.status === 'success') {
                 appendToTerminal(result.output, 'success');
-                appendToTerminal('\n执行成功！正在生成三维图表...', 'success');
+                appendToTerminal('\nExecution successful! Generating 3D surface...', 'success');
                 
                 // Update iframe
                 currentPlotUrl = result.plot_url;
@@ -105,10 +105,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 }, 1500);
             } else {
                 appendToTerminal(result.output || '', '');
-                appendToTerminal(result.error || '未知错误', 'error');
+                appendToTerminal(result.error || 'Unknown error', 'error');
             }
         } catch (err) {
-            appendToTerminal(`请求失败: ${err.message}`, 'error');
+            appendToTerminal(`Request failed: ${err.message}`, 'error');
         } finally {
             // Restore btn
             submitBtn.disabled = false;

@@ -75,7 +75,7 @@ git clone https://github.com/Dniaaa/GMC.git
 cd GMC
 
 # Install dependencies
-pip install numpy pandas scipy statsmodels plotly openpyxl
+pip install numpy pandas scipy statsmodels plotly openpyxl flask
 ```
 
 ---
@@ -162,6 +162,41 @@ The codebase is modularized for clarity and extensibility:
 4.  **Sampling**: Generates `(Q, Qd)` points using Latin Hypercube Sampling in `sampling.py`.
 5.  **GMC Calculation**: Iterates through sample points and methods to compute scores using `GMC` in `GMC.py`.
 6.  **Visualization**: Fits a smooth surface over the computed scores using Kernel Regression and renders an interactive Plotly HTML file via `multi_surface.py`.
+
+---
+
+## 🎨 :new: GMC Interactive Studio (✨ Brand New UI! ✨)
+
+If you strictly hate typing commands inside black-box terminals—worry no more! We have developed a built-in **Flask based interactive Web Dashboard** shipped with a modern *Glassmorphism* aesthetic. You can now execute and interact with everything dynamically via your web browser! 🎉
+
+### 👉 How to Start
+Make sure `flask` is installed (`pip install flask`), then launch the studio directly from the repository root:
+```bash
+python web_app/app.py
+```
+Open **`http://127.0.0.1:5000`** in any web browser to enjoy! 🚀
+
+### 🌈 Guided Tour
+
+> **1. Elegant Home Panel :house:**  
+> A refreshing, low-saturation mint-green aesthetic welcomes you. It provides a high-level view of our "From Global to Granular" workflow paradigm.
+> 
+> <img src="assets/entry.png" width="850px" style="border-radius:12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1)">
+
+> **2. Seamless User Guidelines :book:**  
+> Never get lost! The step-by-step guidelines offer complete transparency on how to deploy parameters, upload CSV paths, and use the web control interface properly.
+> 
+> <img src="assets/guide.png" width="850px" style="border-radius:12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1)">
+
+> **3. One-Click Control Panel & Console :joystick:**  
+> The core magic happens here! Simply fill out your CSV paths and let the internal LHS sampling and GMC extraction compute. Watch the *macOS-style embedded terminal* on the right eagerly split out real-time backend analytical logs!
+> 
+> <img src="assets/console.png" width="850px" style="border-radius:12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1)">
+
+> **4. Captivating 3D Interactive Viewer :cube:**  
+> After hitting "Run", your browser dynamically swops to an interactive *correlation surface canvas*. You can hold your mouse to zoom, rotate, and instantly pinpoint failure spots of different overlaid IQA models without leaving the application.
+> 
+> <img src="assets/viewer.png" width="850px" style="border-radius:12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1)">
 
 ---
 
