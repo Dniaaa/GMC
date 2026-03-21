@@ -165,9 +165,9 @@ The codebase is modularized for clarity and extensibility:
 
 ---
 
-## 🎨 :new: GMC Interactive Studio (✨ Brand New UI! ✨)
+## 🎨 GMC Interactive Studio (✨ Brand New UI! ✨)
 
-If you strictly hate typing commands inside black-box terminals—worry no more! We have developed a built-in **Flask based interactive Web Dashboard** shipped with a modern *Glassmorphism* aesthetic. You can now execute and interact with everything dynamically via your web browser! 🎉
+If you strictly hate typing commands inside black-box terminals—worry no more! We have developed a built-in **Flask based interactive Web Dashboard**. You can now execute and interact with everything dynamically via your web browser! 🎉
 
 ### 👉 How to Start
 Make sure `flask` is installed (`pip install flask`), then launch the studio directly from the repository root:
@@ -179,7 +179,7 @@ Open **`http://127.0.0.1:5000`** in any web browser to enjoy! 🚀
 ### 🌈 Guided Tour
 
 > **1. Elegant Home Panel :house:**  
-> A refreshing, low-saturation mint-green aesthetic welcomes you. It provides a high-level view of our "From Global to Granular" workflow paradigm.
+> It provides a high-level view of our "From Global to Granular" workflow paradigm.
 > 
 > <img src="assets/entry.png" width="850px" style="border-radius:12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1)">
 
