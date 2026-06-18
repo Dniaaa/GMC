@@ -35,6 +35,7 @@ def GMC(Q, Qd, pred, label, std, weights, plus, method):
 
     total = 0
     Ps = []
+    eps = 1e-12
     for i in range(len_data - 1):
         wi = weights[:len_data - i - 1] * weights[i + 1:]  # remove dataset bias
         Ps.append(wi)
@@ -45,11 +46,16 @@ def GMC(Q, Qd, pred, label, std, weights, plus, method):
     if method == 'KRCC':
         # Pre-computing for importance weight w
         for i in range(len_data - 1):
-            diff = np.abs(label[:len_data - i - 1] - label[i + 1:])   # use absolute value because we compute quality range
-            sigma = (std[:len_data - i - 1] * plus)**2 + (std[i + 1:] * plus)**2
             PQi = np.exp(-(Q - label[:len_data - i - 1]) ** 2 / (2 * (std[:len_data - i - 1] * plus)** 2))
             PQj = np.exp(-(Q - label[i + 1:]) ** 2 / (2 * (std[i + 1:] * plus) ** 2))
-            PQd = np.exp(-(Qd - diff)**2 / (2 * sigma))
+            
+            diff = label[:len_data - i - 1] - label[i + 1:]
+            sigma = (std[:len_data - i - 1] * plus) ** 2 + (std[i + 1:] * plus) ** 2
+            sigma = np.maximum(sigma, eps)
+            norm_factor = 1 / np.sqrt(2 * np.pi * sigma)
+            PQd = norm_factor * (np.exp(-(Qd - diff)**2 / (2 * sigma))
+                                 + np.exp(-(Qd + diff)**2 / (2 * sigma)))
+            
             wi = PQi * PQj * PQd * Ps[i]
             w_list.append(wi)
             omega += np.sum(wi)
@@ -77,11 +83,16 @@ def GMC(Q, Qd, pred, label, std, weights, plus, method):
                 temp_label = label_r[:len_data - i - 1] - label_r[i + 1:]
 
             er_label = temp_pred * temp_label
-            diff = np.abs(label[:len_data - i - 1] - label[i + 1:])
-            sigma = (std[:len_data - i - 1] * plus) ** 2 + (std[i + 1:] * plus) ** 2
             PQi = np.exp(-(Q - label[:len_data - i - 1]) ** 2 / (2 * (std[:len_data - i - 1] * plus)** 2))
             PQj = np.exp(-(Q - label[i + 1:]) ** 2 / (2 * (std[i + 1:] * plus) ** 2))
-            PQd = np.exp(-(Qd - diff) ** 2 / (2 * sigma))
+
+            diff = label[:len_data - i - 1] - label[i + 1:]
+            sigma = (std[:len_data - i - 1] * plus) ** 2 + (std[i + 1:] * plus) ** 2
+            sigma = np.maximum(sigma, eps)
+            norm_factor = 1 / np.sqrt(2 * np.pi * sigma)
+            PQd = norm_factor * (np.exp(-(Qd - diff) ** 2 / (2 * sigma))
+                                 + np.exp(-(Qd + diff) ** 2 / (2 * sigma)))
+
 
             wi = PQi * PQj * PQd * Ps[i]    # applicable to PLCC and SRCC
             er_rate += np.sum(wi * er_label)
@@ -142,8 +153,8 @@ if __name__ == '__main__':
                 print(Q, Qd, score)
                 X.append(Q)
                 Y.append(Qd)
-            data = pd.DataFrame({'质量': X, '质量差异': Y, method: scores})
-            data.to_excel(f'./results/实验三_rough/SPAQ/{metric}/{method}.xlsx', index=False)
+            data = pd.DataFrame({'Q': X, 'Qd': Y, method: scores})
+            data.to_excel(f'./results/{metric}/{method}.xlsx', index=False)
 
     # val_PLCC = round(stats.pearsonr(pred, label)[0], 4)
     # print("PLCC:",val_PLCC)

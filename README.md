@@ -23,7 +23,6 @@
 <div>
     <h4 align="center">
         • <a href="https://github.com/Dniaaa/GMC" target='_blank'>[Code]</a> • 
-        <a href="https://htmlpreview.github.io/?https://github.com/Dniaaa/GMC/blob/main/test/ssim_kadid10k.html" target='_blank'>[Try Interactive Demo]</a> •
     </h4>
 </div>
 
@@ -58,8 +57,6 @@
 </table>
 
 </div>
-
-> **Tip:** Click the link in the header or the interactive animation above to open the **full interactive 3D surface** in your browser.
 
 ---
 
@@ -213,12 +210,7 @@ Open **`http://127.0.0.1:5000`** in any web browser to enjoy! 🚀
 If you find this work useful for your research, please consider citing our paper:
 
 ```bibtex
-@article{chen2024granular,
-  title={From Global to Granular: Revealing IQA Model Performance via Correlation Surface},
-  author={Chen, Baoliang and Huang, Danni and Zhu, Hanwei and Zhu, Lingyu and Wang, Shiqi and Lin, Weisi},
-  journal={Submitted to IEEE Transactions on Pattern Analysis and Machine Intelligence (TPAMI)},
-  year={2024}
-}
+% BibTeX entry will be updated upon paper publication
 ```
 
 ## :envelope: Contact
